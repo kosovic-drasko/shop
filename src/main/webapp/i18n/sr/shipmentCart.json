@@ -1,0 +1,33 @@
+{
+  "shopApp": {
+    "shipmentCart": {
+      "home": {
+        "title": "Shipment Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Shipment Cart",
+        "createOrEditLabel": "Kreirajte ili izmenite Shipment Cart",
+        "notFound": "No Shipment Carts found"
+      },
+      "created": "Kreiran je novi Shipment Cart pod nazivom {{ param }}",
+      "updated": "Shipment Cart pod nazivom {{ param }} je ažuriran",
+      "deleted": "Shipment Cart pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Shipment Cart pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipment Cart"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "phoneToTheReceiver": "Phone To The Receiver",
+      "firm": "Firm",
+      "taxNumber": "Tax Number",
+      "cart": "Cart"
+    }
+  }
+}

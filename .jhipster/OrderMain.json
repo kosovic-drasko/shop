@@ -1,0 +1,80 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330054754",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "order_main",
+  "fields": [
+    {
+      "fieldName": "buyerLogin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "buyerFirstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "buyerLastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "buyerEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "buyerPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amountOfCartNet",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amountOfCartGross",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amountOfShipmentNet",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amountOfShipmentGross",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amountOfOrderNet",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amountOfOrderGross",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "orderMainStatus",
+      "fieldType": "OrderMainStatusEnum",
+      "fieldValues": "WaitingForBankTransfer,PreparationForShipping,Sent,Delivered,Canceled"
+    },
+    {
+      "fieldName": "createTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OrderMain",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productInOrderMain",
+      "otherEntityRelationshipName": "orderMain",
+      "relationshipName": "productInOrderMain",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

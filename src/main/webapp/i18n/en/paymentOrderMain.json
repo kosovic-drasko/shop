@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "paymentOrderMain": {
+      "home": {
+        "title": "Payment Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Order Main",
+        "createOrEditLabel": "Create or edit a Payment Order Main",
+        "notFound": "No Payment Order Mains found"
+      },
+      "created": "A new Payment Order Main is created with identifier {{ param }}",
+      "updated": "A Payment Order Main is updated with identifier {{ param }}",
+      "deleted": "A Payment Order Main is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Order Main {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Order Main"
+      },
+      "id": "ID",
+      "name": "Name",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "orderMain": "Order Main"
+    }
+  }
+}

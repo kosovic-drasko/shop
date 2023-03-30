@@ -48,6 +48,18 @@ public class CacheConfiguration {
             createCache(cm, infinityshopping.domain.User.class.getName());
             createCache(cm, infinityshopping.domain.Authority.class.getName());
             createCache(cm, infinityshopping.domain.User.class.getName() + ".authorities");
+            createCache(cm, infinityshopping.domain.Proba.class.getName());
+            createCache(cm, infinityshopping.domain.Cart.class.getName());
+            createCache(cm, infinityshopping.domain.OrderMain.class.getName());
+            createCache(cm, infinityshopping.domain.OrderMain.class.getName() + ".productInOrderMains");
+            createCache(cm, infinityshopping.domain.Payment.class.getName());
+            createCache(cm, infinityshopping.domain.PaymentCart.class.getName());
+            createCache(cm, infinityshopping.domain.PaymentOrderMain.class.getName());
+            createCache(cm, infinityshopping.domain.Product.class.getName());
+            createCache(cm, infinityshopping.domain.ProductInCart.class.getName());
+            createCache(cm, infinityshopping.domain.ProductInOrderMain.class.getName());
+            createCache(cm, infinityshopping.domain.ShipmentCart.class.getName());
+            createCache(cm, infinityshopping.domain.ShipmentOrderMain.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

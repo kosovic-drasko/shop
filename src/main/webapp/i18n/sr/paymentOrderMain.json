@@ -1,0 +1,28 @@
+{
+  "shopApp": {
+    "paymentOrderMain": {
+      "home": {
+        "title": "Payment Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Payment Order Main",
+        "createOrEditLabel": "Kreirajte ili izmenite Payment Order Main",
+        "notFound": "No Payment Order Mains found"
+      },
+      "created": "Kreiran je novi Payment Order Main pod nazivom {{ param }}",
+      "updated": "Payment Order Main pod nazivom {{ param }} je ažuriran",
+      "deleted": "Payment Order Main pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Payment Order Main pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Order Main"
+      },
+      "id": "ID",
+      "name": "Name",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "orderMain": "Order Main"
+    }
+  }
+}

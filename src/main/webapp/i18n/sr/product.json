@@ -1,0 +1,34 @@
+{
+  "shopApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Product",
+        "createOrEditLabel": "Kreirajte ili izmenite Product",
+        "notFound": "No Products found"
+      },
+      "created": "Kreiran je novi Product pod nazivom {{ param }}",
+      "updated": "Product pod nazivom {{ param }} je ažuriran",
+      "deleted": "Product pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Product pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "id": "ID",
+      "productCategoryEnum": "Product Category Enum",
+      "name": "Name",
+      "quantity": "Quantity",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "stock": "Stock",
+      "description": "Description",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "image": "Image"
+    }
+  }
+}

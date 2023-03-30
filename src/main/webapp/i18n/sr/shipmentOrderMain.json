@@ -1,0 +1,33 @@
+{
+  "shopApp": {
+    "shipmentOrderMain": {
+      "home": {
+        "title": "Shipment Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Shipment Order Main",
+        "createOrEditLabel": "Kreirajte ili izmenite Shipment Order Main",
+        "notFound": "No Shipment Order Mains found"
+      },
+      "created": "Kreiran je novi Shipment Order Main pod nazivom {{ param }}",
+      "updated": "Shipment Order Main pod nazivom {{ param }} je ažuriran",
+      "deleted": "Shipment Order Main pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Shipment Order Main pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipment Order Main"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "phoneToTheReceiver": "Phone To The Receiver",
+      "firm": "Firm",
+      "taxNumber": "Tax Number",
+      "orderMain": "Order Main"
+    }
+  }
+}

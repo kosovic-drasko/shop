@@ -1,0 +1,29 @@
+{
+  "shopApp": {
+    "cart": {
+      "home": {
+        "title": "Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Cart",
+        "createOrEditLabel": "Kreirajte ili izmenite Cart",
+        "notFound": "No Carts found"
+      },
+      "created": "Kreiran je novi Cart pod nazivom {{ param }}",
+      "updated": "Cart pod nazivom {{ param }} je ažuriran",
+      "deleted": "Cart pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Cart pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Cart"
+      },
+      "id": "ID",
+      "amountOfCartNet": "Amount Of Cart Net",
+      "amountOfCartGross": "Amount Of Cart Gross",
+      "amountOfShipmentNet": "Amount Of Shipment Net",
+      "amountOfShipmentGross": "Amount Of Shipment Gross",
+      "amountOfOrderNet": "Amount Of Order Net",
+      "amountOfOrderGross": "Amount Of Order Gross"
+    }
+  }
+}

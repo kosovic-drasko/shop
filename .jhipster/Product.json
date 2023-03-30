@@ -1,0 +1,76 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330054758",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "productCategoryEnum",
+      "fieldType": "ProductCategoryEnum",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Vitamins,Minerals"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "priceNet",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "1000000",
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "vat",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "100",
+      "fieldValidateRulesMin": "5"
+    },
+    {
+      "fieldName": "priceGross",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "1000000",
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Product",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

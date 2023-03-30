@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330054756",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "payment_cart",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "priceNet",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "vat",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "priceGross",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentStatusEnum",
+      "fieldType": "PaymentStatusEnum",
+      "fieldValues": "WaitingForBankTransfer,PreparationForShipping"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PaymentCart",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cart",
+      "ownerSide": true,
+      "relationshipName": "cart",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

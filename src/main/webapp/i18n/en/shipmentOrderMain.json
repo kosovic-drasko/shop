@@ -1,0 +1,33 @@
+{
+  "shopApp": {
+    "shipmentOrderMain": {
+      "home": {
+        "title": "Shipment Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Shipment Order Main",
+        "createOrEditLabel": "Create or edit a Shipment Order Main",
+        "notFound": "No Shipment Order Mains found"
+      },
+      "created": "A new Shipment Order Main is created with identifier {{ param }}",
+      "updated": "A Shipment Order Main is updated with identifier {{ param }}",
+      "deleted": "A Shipment Order Main is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipment Order Main {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipment Order Main"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "phoneToTheReceiver": "Phone To The Receiver",
+      "firm": "Firm",
+      "taxNumber": "Tax Number",
+      "orderMain": "Order Main"
+    }
+  }
+}

@@ -1,0 +1,238 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-cart-heading" data-cy="CartCreateUpdateHeading" jhiTranslate="shopApp.cart.home.createOrEditLabel">
+        Kreirajte ili izmenite Cart
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.cart.amountOfCartNet" for="field_amountOfCartNet">Amount Of Cart Net</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfCartNet"
+            id="field_amountOfCartNet"
+            data-cy="amountOfCartNet"
+            formControlName="amountOfCartNet"
+          />
+          <div
+            *ngIf="
+              editForm.get('amountOfCartNet')!.invalid &&
+              (editForm.get('amountOfCartNet')!.dirty || editForm.get('amountOfCartNet')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('amountOfCartNet')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Polje je obavezno.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('amountOfCartNet')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Polje mora biti broj.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.cart.amountOfCartGross" for="field_amountOfCartGross">Amount Of Cart Gross</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfCartGross"
+            id="field_amountOfCartGross"
+            data-cy="amountOfCartGross"
+            formControlName="amountOfCartGross"
+          />
+          <div
+            *ngIf="
+              editForm.get('amountOfCartGross')!.invalid &&
+              (editForm.get('amountOfCartGross')!.dirty || editForm.get('amountOfCartGross')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('amountOfCartGross')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Polje je obavezno.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('amountOfCartGross')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Polje mora biti broj.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.cart.amountOfShipmentNet" for="field_amountOfShipmentNet"
+            >Amount Of Shipment Net</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfShipmentNet"
+            id="field_amountOfShipmentNet"
+            data-cy="amountOfShipmentNet"
+            formControlName="amountOfShipmentNet"
+          />
+          <div
+            *ngIf="
+              editForm.get('amountOfShipmentNet')!.invalid &&
+              (editForm.get('amountOfShipmentNet')!.dirty || editForm.get('amountOfShipmentNet')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('amountOfShipmentNet')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Polje je obavezno.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('amountOfShipmentNet')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Polje mora biti broj.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.cart.amountOfShipmentGross" for="field_amountOfShipmentGross"
+            >Amount Of Shipment Gross</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfShipmentGross"
+            id="field_amountOfShipmentGross"
+            data-cy="amountOfShipmentGross"
+            formControlName="amountOfShipmentGross"
+          />
+          <div
+            *ngIf="
+              editForm.get('amountOfShipmentGross')!.invalid &&
+              (editForm.get('amountOfShipmentGross')!.dirty || editForm.get('amountOfShipmentGross')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('amountOfShipmentGross')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Polje je obavezno.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('amountOfShipmentGross')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Polje mora biti broj.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.cart.amountOfOrderNet" for="field_amountOfOrderNet">Amount Of Order Net</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfOrderNet"
+            id="field_amountOfOrderNet"
+            data-cy="amountOfOrderNet"
+            formControlName="amountOfOrderNet"
+          />
+          <div
+            *ngIf="
+              editForm.get('amountOfOrderNet')!.invalid &&
+              (editForm.get('amountOfOrderNet')!.dirty || editForm.get('amountOfOrderNet')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('amountOfOrderNet')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Polje je obavezno.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('amountOfOrderNet')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Polje mora biti broj.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.cart.amountOfOrderGross" for="field_amountOfOrderGross"
+            >Amount Of Order Gross</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfOrderGross"
+            id="field_amountOfOrderGross"
+            data-cy="amountOfOrderGross"
+            formControlName="amountOfOrderGross"
+          />
+          <div
+            *ngIf="
+              editForm.get('amountOfOrderGross')!.invalid &&
+              (editForm.get('amountOfOrderGross')!.dirty || editForm.get('amountOfOrderGross')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('amountOfOrderGross')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Polje je obavezno.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('amountOfOrderGross')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Polje mora biti broj.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Otkaži</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sačuvaj</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

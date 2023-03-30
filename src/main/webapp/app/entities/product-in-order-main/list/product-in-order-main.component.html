@@ -1,0 +1,187 @@
+<div>
+  <h2 id="page-heading" data-cy="ProductInOrderMainHeading">
+    <span jhiTranslate="shopApp.productInOrderMain.home.title">Product In Order Mains</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shopApp.productInOrderMain.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-product-in-order-main"
+        [routerLink]="['/product-in-order-main/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shopApp.productInOrderMain.home.createLabel"> Kreiraj novi Product In Order Main </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="productInOrderMains?.length === 0">
+    <span jhiTranslate="shopApp.productInOrderMain.home.notFound">No Product In Order Mains found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="productInOrderMains && productInOrderMains.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="category">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.category">Category</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="quantity">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.quantity">Quantity</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priceNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.priceNet">Price Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="vat">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.vat">Vat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priceGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.priceGross">Price Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="totalPriceNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.totalPriceNet">Total Price Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="totalPriceGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.totalPriceGross">Total Price Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stock">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.stock">Stock</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="image">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.image">Image</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="productId">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.productId">Product Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="orderMain.id">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.productInOrderMain.orderMain">Order Main</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let productInOrderMain of productInOrderMains; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/product-in-order-main', productInOrderMain.id, 'view']">{{ productInOrderMain.id }}</a>
+          </td>
+          <td>{{ productInOrderMain.category }}</td>
+          <td>{{ productInOrderMain.name }}</td>
+          <td>{{ productInOrderMain.quantity }}</td>
+          <td>{{ productInOrderMain.priceNet }}</td>
+          <td>{{ productInOrderMain.vat }}</td>
+          <td>{{ productInOrderMain.priceGross }}</td>
+          <td>{{ productInOrderMain.totalPriceNet }}</td>
+          <td>{{ productInOrderMain.totalPriceGross }}</td>
+          <td>{{ productInOrderMain.stock }}</td>
+          <td>{{ productInOrderMain.description }}</td>
+          <td>
+            <a *ngIf="productInOrderMain.image" (click)="openFile(productInOrderMain.image, productInOrderMain.imageContentType)">
+              <img
+                [src]="'data:' + productInOrderMain.imageContentType + ';base64,' + productInOrderMain.image"
+                style="max-height: 30px"
+                alt="productInOrderMain image"
+              />
+            </a>
+            <span *ngIf="productInOrderMain.image"
+              >{{ productInOrderMain.imageContentType }}, {{ byteSize(productInOrderMain.image) }}</span
+            >
+          </td>
+          <td>{{ productInOrderMain.productId }}</td>
+          <td>
+            <div *ngIf="productInOrderMain.orderMain">
+              <a [routerLink]="['/order-main', productInOrderMain.orderMain.id, 'view']">{{ productInOrderMain.orderMain.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/product-in-order-main', productInOrderMain.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Pregled</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/product-in-order-main', productInOrderMain.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Izmeni</span>
+              </button>
+
+              <button type="submit" (click)="delete(productInOrderMain)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Obriši</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

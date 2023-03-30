@@ -1,0 +1,29 @@
+{
+  "shopApp": {
+    "paymentCart": {
+      "home": {
+        "title": "Payment Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Cart",
+        "createOrEditLabel": "Create or edit a Payment Cart",
+        "notFound": "No Payment Carts found"
+      },
+      "created": "A new Payment Cart is created with identifier {{ param }}",
+      "updated": "A Payment Cart is updated with identifier {{ param }}",
+      "deleted": "A Payment Cart is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Cart {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Cart"
+      },
+      "id": "ID",
+      "name": "Name",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "paymentStatusEnum": "Payment Status Enum",
+      "cart": "Cart"
+    }
+  }
+}

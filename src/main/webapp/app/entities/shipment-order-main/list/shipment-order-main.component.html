@@ -1,0 +1,155 @@
+<div>
+  <h2 id="page-heading" data-cy="ShipmentOrderMainHeading">
+    <span jhiTranslate="shopApp.shipmentOrderMain.home.title">Shipment Order Mains</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shopApp.shipmentOrderMain.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-shipment-order-main"
+        [routerLink]="['/shipment-order-main/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shopApp.shipmentOrderMain.home.createLabel"> Kreiraj novi Shipment Order Main </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="shipmentOrderMains?.length === 0">
+    <span jhiTranslate="shopApp.shipmentOrderMain.home.notFound">No Shipment Order Mains found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="shipmentOrderMains && shipmentOrderMains.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="street">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.street">Street</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="postalCode">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.postalCode">Postal Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.city">City</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="country">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.country">Country</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phoneToTheReceiver">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.phoneToTheReceiver">Phone To The Receiver</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firm">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.firm">Firm</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="taxNumber">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.taxNumber">Tax Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="orderMain.id">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.shipmentOrderMain.orderMain">Order Main</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shipmentOrderMain of shipmentOrderMains; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/shipment-order-main', shipmentOrderMain.id, 'view']">{{ shipmentOrderMain.id }}</a>
+          </td>
+          <td>{{ shipmentOrderMain.firstName }}</td>
+          <td>{{ shipmentOrderMain.lastName }}</td>
+          <td>{{ shipmentOrderMain.street }}</td>
+          <td>{{ shipmentOrderMain.postalCode }}</td>
+          <td>{{ shipmentOrderMain.city }}</td>
+          <td>{{ shipmentOrderMain.country }}</td>
+          <td>{{ shipmentOrderMain.phoneToTheReceiver }}</td>
+          <td>{{ shipmentOrderMain.firm }}</td>
+          <td>{{ shipmentOrderMain.taxNumber }}</td>
+          <td>
+            <div *ngIf="shipmentOrderMain.orderMain">
+              <a [routerLink]="['/order-main', shipmentOrderMain.orderMain.id, 'view']">{{ shipmentOrderMain.orderMain.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/shipment-order-main', shipmentOrderMain.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Pregled</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/shipment-order-main', shipmentOrderMain.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Izmeni</span>
+              </button>
+
+              <button type="submit" (click)="delete(shipmentOrderMain)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Obriši</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

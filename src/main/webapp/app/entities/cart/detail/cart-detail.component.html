@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cart">
+      <h2 data-cy="cartDetailsHeading"><span jhiTranslate="shopApp.cart.detail.title">Cart</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cart.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.cart.amountOfCartNet">Amount Of Cart Net</span></dt>
+        <dd>
+          <span>{{ cart.amountOfCartNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.cart.amountOfCartGross">Amount Of Cart Gross</span></dt>
+        <dd>
+          <span>{{ cart.amountOfCartGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.cart.amountOfShipmentNet">Amount Of Shipment Net</span></dt>
+        <dd>
+          <span>{{ cart.amountOfShipmentNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.cart.amountOfShipmentGross">Amount Of Shipment Gross</span></dt>
+        <dd>
+          <span>{{ cart.amountOfShipmentGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.cart.amountOfOrderNet">Amount Of Order Net</span></dt>
+        <dd>
+          <span>{{ cart.amountOfOrderNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.cart.amountOfOrderGross">Amount Of Order Gross</span></dt>
+        <dd>
+          <span>{{ cart.amountOfOrderGross }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cart', cart.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

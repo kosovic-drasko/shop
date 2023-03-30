@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productInCart">
+      <h2 data-cy="productInCartDetailsHeading"><span jhiTranslate="shopApp.productInCart.detail.title">Product In Cart</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productInCart.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.category">Category</span></dt>
+        <dd>
+          <span>{{ productInCart.category }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.name">Name</span></dt>
+        <dd>
+          <span>{{ productInCart.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.quantity">Quantity</span></dt>
+        <dd>
+          <span>{{ productInCart.quantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.priceNet">Price Net</span></dt>
+        <dd>
+          <span>{{ productInCart.priceNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.vat">Vat</span></dt>
+        <dd>
+          <span>{{ productInCart.vat }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.priceGross">Price Gross</span></dt>
+        <dd>
+          <span>{{ productInCart.priceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.totalPriceNet">Total Price Net</span></dt>
+        <dd>
+          <span>{{ productInCart.totalPriceNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.totalPriceGross">Total Price Gross</span></dt>
+        <dd>
+          <span>{{ productInCart.totalPriceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.stock">Stock</span></dt>
+        <dd>
+          <span>{{ productInCart.stock }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.description">Description</span></dt>
+        <dd>
+          <span>{{ productInCart.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.image">Image</span></dt>
+        <dd>
+          <div *ngIf="productInCart.image">
+            <a (click)="openFile(productInCart.image, productInCart.imageContentType)">
+              <img
+                [src]="'data:' + productInCart.imageContentType + ';base64,' + productInCart.image"
+                style="max-width: 100%"
+                alt="productInCart image"
+              />
+            </a>
+            {{ productInCart.imageContentType }}, {{ byteSize(productInCart.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.productId">Product Id</span></dt>
+        <dd>
+          <span>{{ productInCart.productId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInCart.cart">Cart</span></dt>
+        <dd>
+          <div *ngIf="productInCart.cart">
+            <a [routerLink]="['/cart', productInCart.cart.id, 'view']">{{ productInCart.cart.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-in-cart', productInCart.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "shopApp": {
+    "OrderMainStatusEnum": {
+      "null": "",
+      "WaitingForBankTransfer": "WaitingForBankTransfer",
+      "PreparationForShipping": "PreparationForShipping",
+      "Sent": "Sent",
+      "Delivered": "Delivered",
+      "Canceled": "Canceled"
+    }
+  }
+}

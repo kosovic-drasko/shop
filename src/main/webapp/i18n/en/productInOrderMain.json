@@ -1,0 +1,36 @@
+{
+  "shopApp": {
+    "productInOrderMain": {
+      "home": {
+        "title": "Product In Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product In Order Main",
+        "createOrEditLabel": "Create or edit a Product In Order Main",
+        "notFound": "No Product In Order Mains found"
+      },
+      "created": "A new Product In Order Main is created with identifier {{ param }}",
+      "updated": "A Product In Order Main is updated with identifier {{ param }}",
+      "deleted": "A Product In Order Main is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product In Order Main {{ id }}?"
+      },
+      "detail": {
+        "title": "Product In Order Main"
+      },
+      "id": "ID",
+      "category": "Category",
+      "name": "Name",
+      "quantity": "Quantity",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "totalPriceNet": "Total Price Net",
+      "totalPriceGross": "Total Price Gross",
+      "stock": "Stock",
+      "description": "Description",
+      "image": "Image",
+      "productId": "Product Id",
+      "orderMain": "Order Main"
+    }
+  }
+}

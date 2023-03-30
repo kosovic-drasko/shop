@@ -1,0 +1,36 @@
+{
+  "shopApp": {
+    "productInCart": {
+      "home": {
+        "title": "Product In Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Product In Cart",
+        "createOrEditLabel": "Kreirajte ili izmenite Product In Cart",
+        "notFound": "No Product In Carts found"
+      },
+      "created": "Kreiran je novi Product In Cart pod nazivom {{ param }}",
+      "updated": "Product In Cart pod nazivom {{ param }} je ažuriran",
+      "deleted": "Product In Cart pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Product In Cart pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Product In Cart"
+      },
+      "id": "ID",
+      "category": "Category",
+      "name": "Name",
+      "quantity": "Quantity",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "totalPriceNet": "Total Price Net",
+      "totalPriceGross": "Total Price Gross",
+      "stock": "Stock",
+      "description": "Description",
+      "image": "Image",
+      "productId": "Product Id",
+      "cart": "Cart"
+    }
+  }
+}

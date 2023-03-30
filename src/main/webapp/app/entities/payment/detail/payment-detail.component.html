@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="payment">
+      <h2 data-cy="paymentDetailsHeading"><span jhiTranslate="shopApp.payment.detail.title">Payment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ payment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.name">Name</span></dt>
+        <dd>
+          <span>{{ payment.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.priceNet">Price Net</span></dt>
+        <dd>
+          <span>{{ payment.priceNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.vat">Vat</span></dt>
+        <dd>
+          <span>{{ payment.vat }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.priceGross">Price Gross</span></dt>
+        <dd>
+          <span>{{ payment.priceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.paymentStatusEnum">Payment Status Enum</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shopApp.PaymentStatusEnum.' + payment.paymentStatusEnum }}">{{ payment.paymentStatusEnum }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.createTime">Create Time</span></dt>
+        <dd>
+          <span>{{ payment.createTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.payment.updateTime">Update Time</span></dt>
+        <dd>
+          <span>{{ payment.updateTime | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payment', payment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

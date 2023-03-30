@@ -1,0 +1,93 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productInOrderMain">
+      <h2 data-cy="productInOrderMainDetailsHeading">
+        <span jhiTranslate="shopApp.productInOrderMain.detail.title">Product In Order Main</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.category">Category</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.category }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.name">Name</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.quantity">Quantity</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.quantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.priceNet">Price Net</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.priceNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.vat">Vat</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.vat }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.priceGross">Price Gross</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.priceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.totalPriceNet">Total Price Net</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.totalPriceNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.totalPriceGross">Total Price Gross</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.totalPriceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.stock">Stock</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.stock }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.description">Description</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.image">Image</span></dt>
+        <dd>
+          <div *ngIf="productInOrderMain.image">
+            <a (click)="openFile(productInOrderMain.image, productInOrderMain.imageContentType)">
+              <img
+                [src]="'data:' + productInOrderMain.imageContentType + ';base64,' + productInOrderMain.image"
+                style="max-width: 100%"
+                alt="productInOrderMain image"
+              />
+            </a>
+            {{ productInOrderMain.imageContentType }}, {{ byteSize(productInOrderMain.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.productId">Product Id</span></dt>
+        <dd>
+          <span>{{ productInOrderMain.productId }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.productInOrderMain.orderMain">Order Main</span></dt>
+        <dd>
+          <div *ngIf="productInOrderMain.orderMain">
+            <a [routerLink]="['/order-main', productInOrderMain.orderMain.id, 'view']">{{ productInOrderMain.orderMain.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-in-order-main', productInOrderMain.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

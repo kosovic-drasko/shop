@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="shipmentCart">
+      <h2 data-cy="shipmentCartDetailsHeading"><span jhiTranslate="shopApp.shipmentCart.detail.title">Shipment Cart</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ shipmentCart.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ shipmentCart.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ shipmentCart.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.street">Street</span></dt>
+        <dd>
+          <span>{{ shipmentCart.street }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ shipmentCart.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.city">City</span></dt>
+        <dd>
+          <span>{{ shipmentCart.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.country">Country</span></dt>
+        <dd>
+          <span>{{ shipmentCart.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.phoneToTheReceiver">Phone To The Receiver</span></dt>
+        <dd>
+          <span>{{ shipmentCart.phoneToTheReceiver }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.firm">Firm</span></dt>
+        <dd>
+          <span>{{ shipmentCart.firm }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.taxNumber">Tax Number</span></dt>
+        <dd>
+          <span>{{ shipmentCart.taxNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentCart.cart">Cart</span></dt>
+        <dd>
+          <div *ngIf="shipmentCart.cart">
+            <a [routerLink]="['/cart', shipmentCart.cart.id, 'view']">{{ shipmentCart.cart.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/shipment-cart', shipmentCart.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

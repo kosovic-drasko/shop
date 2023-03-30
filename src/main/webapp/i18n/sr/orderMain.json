@@ -1,0 +1,38 @@
+{
+  "shopApp": {
+    "orderMain": {
+      "home": {
+        "title": "Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Order Main",
+        "createOrEditLabel": "Kreirajte ili izmenite Order Main",
+        "notFound": "No Order Mains found"
+      },
+      "created": "Kreiran je novi Order Main pod nazivom {{ param }}",
+      "updated": "Order Main pod nazivom {{ param }} je ažuriran",
+      "deleted": "Order Main pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Order Main pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Main"
+      },
+      "id": "ID",
+      "buyerLogin": "Buyer Login",
+      "buyerFirstName": "Buyer First Name",
+      "buyerLastName": "Buyer Last Name",
+      "buyerEmail": "Buyer Email",
+      "buyerPhone": "Buyer Phone",
+      "amountOfCartNet": "Amount Of Cart Net",
+      "amountOfCartGross": "Amount Of Cart Gross",
+      "amountOfShipmentNet": "Amount Of Shipment Net",
+      "amountOfShipmentGross": "Amount Of Shipment Gross",
+      "amountOfOrderNet": "Amount Of Order Net",
+      "amountOfOrderGross": "Amount Of Order Gross",
+      "orderMainStatus": "Order Main Status",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "productInOrderMain": "Product In Order Main"
+    }
+  }
+}

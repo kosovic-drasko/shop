@@ -1,0 +1,11 @@
+id;name;price_net;vat;price_gross;payment_status_enum;create_time;update_time
+1;Soap killer;1707;80;53272;WaitingForBankTransfer;2023-03-30T00:14:03;2023-03-29T15:03:32
+2;Chair;1036;44;38801;WaitingForBankTransfer;2023-03-29T10:21:06;2023-03-29T07:26:20
+3;overriding Tools;3221;47;76430;WaitingForBankTransfer;2023-03-29T11:16:55;2023-03-30T03:05:11
+4;matrix;5614;0;95448;PreparationForShipping;2023-03-29T10:54:34;2023-03-30T00:47:11
+5;Incredible Wooden;1364;12;30137;WaitingForBankTransfer;2023-03-29T17:44:30;2023-03-30T05:44:19
+6;Swedish Berkshire;9262;25;62995;WaitingForBankTransfer;2023-03-29T11:50:05;2023-03-29T11:01:24
+7;Multi-channelled Steel;7925;54;24324;WaitingForBankTransfer;2023-03-29T20:20:57;2023-03-29T17:52:56
+8;Accountability;6508;85;26655;WaitingForBankTransfer;2023-03-29T16:24:43;2023-03-29T08:22:21
+9;Garden;5346;30;93667;PreparationForShipping;2023-03-29T11:52:16;2023-03-29T16:29:09
+10;Designer transmit fuchsia;6775;5;72944;PreparationForShipping;2023-03-29T14:48:58;2023-03-29T20:39:00

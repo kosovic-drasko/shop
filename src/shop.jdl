@@ -1,0 +1,146 @@
+entity Cart {
+  amountOfCartNet BigDecimal required
+  amountOfCartGross BigDecimal required
+  amountOfShipmentNet BigDecimal required
+  amountOfShipmentGross BigDecimal required
+  amountOfOrderNet BigDecimal required
+  amountOfOrderGross BigDecimal required
+}
+entity OrderMain {
+  buyerLogin String
+  buyerFirstName String
+  buyerLastName String
+  buyerEmail String
+  buyerPhone String
+  amountOfCartNet BigDecimal
+  amountOfCartGross BigDecimal
+  amountOfShipmentNet BigDecimal
+  amountOfShipmentGross BigDecimal
+  amountOfOrderNet BigDecimal
+  amountOfOrderGross BigDecimal
+  orderMainStatus OrderMainStatusEnum
+  createTime Instant
+  updateTime Instant
+}
+entity Payment {
+  name String required maxlength(1000)
+  priceNet BigDecimal required min(0) max(10000)
+  vat BigDecimal required min(0) max(100)
+  priceGross BigDecimal
+  paymentStatusEnum PaymentStatusEnum
+  createTime Instant
+  updateTime Instant
+}
+entity PaymentCart {
+  name String required
+  priceNet BigDecimal required
+  vat BigDecimal required
+  priceGross BigDecimal required
+  paymentStatusEnum PaymentStatusEnum
+}
+entity PaymentOrderMain {
+  name String required
+  priceNet BigDecimal required
+  vat BigDecimal required
+  priceGross BigDecimal required
+}
+entity Proba {
+  naziv String
+}
+entity Product {
+  productCategoryEnum ProductCategoryEnum required
+  name String required 
+  quantity BigDecimal
+  priceNet BigDecimal required min(0) max(1000000)
+  vat BigDecimal required min(5) max(100)
+  priceGross BigDecimal
+  stock BigDecimal required min(0) max(1000000)
+  description TextBlob required
+  createTime Instant
+  updateTime Instant
+  image ImageBlob required
+}
+entity ProductInCart {
+  category String
+  name String
+  quantity BigDecimal
+  priceNet BigDecimal
+  vat BigDecimal
+  priceGross BigDecimal
+  totalPriceNet BigDecimal
+  totalPriceGross BigDecimal
+  stock BigDecimal
+  description TextBlob
+  image ImageBlob
+  productId Long
+}
+entity ProductInOrderMain {
+  category String
+  name String
+  quantity BigDecimal
+  priceNet BigDecimal
+  vat BigDecimal
+  priceGross BigDecimal
+  totalPriceNet BigDecimal
+  totalPriceGross BigDecimal
+  stock BigDecimal
+  description TextBlob
+  image ImageBlob
+  productId Long
+}
+entity ShipmentCart {
+  firstName String required maxlength(500)
+  lastName String required maxlength(500)
+  street String required maxlength(500)
+  postalCode String required maxlength(20)
+  city String required maxlength(500)
+  country String required maxlength(500)
+  phoneToTheReceiver String required maxlength(30)
+  firm String maxlength(10000)
+  taxNumber String maxlength(50)
+}
+entity ShipmentOrderMain {
+  firstName String required maxlength(500)
+  lastName String required maxlength(500)
+  street String required maxlength(500)
+  postalCode String required maxlength(20)
+  city String required maxlength(500)
+  country String required maxlength(500)
+  phoneToTheReceiver String required maxlength(30)
+  firm String maxlength(10000)
+  taxNumber String maxlength(50)
+}
+enum OrderMainStatusEnum {
+  WaitingForBankTransfer,
+   PreparationForShipping,
+   Sent,
+   Delivered,
+   Canceled
+}
+enum PaymentStatusEnum {
+  WaitingForBankTransfer,
+  PreparationForShipping
+}
+enum ProductCategoryEnum {
+  Vitamins,
+  Minerals
+}
+
+relationship OneToOne {
+  PaymentCart{cart} to Cart
+  PaymentOrderMain{orderMain} to OrderMain
+  ShipmentCart{cart} to Cart
+  ShipmentOrderMain{orderMain} to OrderMain
+}
+relationship OneToMany {
+  OrderMain{productInOrderMain} to ProductInOrderMain{orderMain}
+}
+relationship ManyToOne {
+  ProductInCart{cart} to Cart
+}
+
+dto Cart, OrderMain, Payment, PaymentCart, PaymentOrderMain, Product, ProductInCart, ProductInOrderMain, ShipmentCart, ShipmentOrderMain with mapstruct
+service Cart, OrderMain, Payment, PaymentCart, PaymentOrderMain, Product, ProductInCart, ProductInOrderMain, ShipmentCart, ShipmentOrderMain with serviceImpl
+service Proba with serviceClass
+filter Proba
+paginate Product with pagination

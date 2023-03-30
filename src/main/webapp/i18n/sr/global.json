@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entiteti",
+        "proba": "Proba",
+        "cart": "Cart",
+        "orderMain": "Order Main",
+        "payment": "Payment",
+        "paymentCart": "Payment Cart",
+        "paymentOrderMain": "Payment Order Main",
+        "product": "Product",
+        "productInCart": "Product In Cart",
+        "productInOrderMain": "Product In Order Main",
+        "shipmentCart": "Shipment Cart",
+        "shipmentOrderMain": "Shipment Order Main",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

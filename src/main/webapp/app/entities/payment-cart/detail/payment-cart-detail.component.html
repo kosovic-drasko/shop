@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="paymentCart">
+      <h2 data-cy="paymentCartDetailsHeading"><span jhiTranslate="shopApp.paymentCart.detail.title">Payment Cart</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ paymentCart.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.paymentCart.name">Name</span></dt>
+        <dd>
+          <span>{{ paymentCart.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.paymentCart.priceNet">Price Net</span></dt>
+        <dd>
+          <span>{{ paymentCart.priceNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.paymentCart.vat">Vat</span></dt>
+        <dd>
+          <span>{{ paymentCart.vat }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.paymentCart.priceGross">Price Gross</span></dt>
+        <dd>
+          <span>{{ paymentCart.priceGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.paymentCart.paymentStatusEnum">Payment Status Enum</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shopApp.PaymentStatusEnum.' + paymentCart.paymentStatusEnum }}">{{ paymentCart.paymentStatusEnum }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.paymentCart.cart">Cart</span></dt>
+        <dd>
+          <div *ngIf="paymentCart.cart">
+            <a [routerLink]="['/cart', paymentCart.cart.id, 'view']">{{ paymentCart.cart.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payment-cart', paymentCart.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

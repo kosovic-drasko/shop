@@ -1,0 +1,179 @@
+<div>
+  <h2 id="page-heading" data-cy="OrderMainHeading">
+    <span jhiTranslate="shopApp.orderMain.home.title">Order Mains</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shopApp.orderMain.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-order-main"
+        [routerLink]="['/order-main/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shopApp.orderMain.home.createLabel"> Kreiraj novi Order Main </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="orderMains?.length === 0">
+    <span jhiTranslate="shopApp.orderMain.home.notFound">No Order Mains found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="orderMains && orderMains.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyerLogin">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.buyerLogin">Buyer Login</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyerFirstName">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.buyerFirstName">Buyer First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyerLastName">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.buyerLastName">Buyer Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyerEmail">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.buyerEmail">Buyer Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="buyerPhone">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.buyerPhone">Buyer Phone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfCartNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.amountOfCartNet">Amount Of Cart Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfCartGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.amountOfCartGross">Amount Of Cart Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfShipmentNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.amountOfShipmentNet">Amount Of Shipment Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfShipmentGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.amountOfShipmentGross">Amount Of Shipment Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfOrderNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.amountOfOrderNet">Amount Of Order Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfOrderGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.amountOfOrderGross">Amount Of Order Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="orderMainStatus">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.orderMainStatus">Order Main Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createTime">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.createTime">Create Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="updateTime">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.orderMain.updateTime">Update Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderMain of orderMains; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/order-main', orderMain.id, 'view']">{{ orderMain.id }}</a>
+          </td>
+          <td>{{ orderMain.buyerLogin }}</td>
+          <td>{{ orderMain.buyerFirstName }}</td>
+          <td>{{ orderMain.buyerLastName }}</td>
+          <td>{{ orderMain.buyerEmail }}</td>
+          <td>{{ orderMain.buyerPhone }}</td>
+          <td>{{ orderMain.amountOfCartNet }}</td>
+          <td>{{ orderMain.amountOfCartGross }}</td>
+          <td>{{ orderMain.amountOfShipmentNet }}</td>
+          <td>{{ orderMain.amountOfShipmentGross }}</td>
+          <td>{{ orderMain.amountOfOrderNet }}</td>
+          <td>{{ orderMain.amountOfOrderGross }}</td>
+          <td jhiTranslate="{{ 'shopApp.OrderMainStatusEnum.' + orderMain.orderMainStatus }}">{{ orderMain.orderMainStatus }}</td>
+          <td>{{ orderMain.createTime | formatMediumDatetime }}</td>
+          <td>{{ orderMain.updateTime | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/order-main', orderMain.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Pregled</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/order-main', orderMain.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Izmeni</span>
+              </button>
+
+              <button type="submit" (click)="delete(orderMain)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Obriši</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

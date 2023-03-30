@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="shipmentOrderMain">
+      <h2 data-cy="shipmentOrderMainDetailsHeading">
+        <span jhiTranslate="shopApp.shipmentOrderMain.detail.title">Shipment Order Main</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.street">Street</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.street }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.city">City</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.country">Country</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.phoneToTheReceiver">Phone To The Receiver</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.phoneToTheReceiver }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.firm">Firm</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.firm }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.taxNumber">Tax Number</span></dt>
+        <dd>
+          <span>{{ shipmentOrderMain.taxNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.shipmentOrderMain.orderMain">Order Main</span></dt>
+        <dd>
+          <div *ngIf="shipmentOrderMain.orderMain">
+            <a [routerLink]="['/order-main', shipmentOrderMain.orderMain.id, 'view']">{{ shipmentOrderMain.orderMain.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/shipment-order-main', shipmentOrderMain.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

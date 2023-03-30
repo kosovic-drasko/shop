@@ -1,0 +1,33 @@
+{
+  "shopApp": {
+    "shipmentCart": {
+      "home": {
+        "title": "Shipment Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Shipment Cart",
+        "createOrEditLabel": "Create or edit a Shipment Cart",
+        "notFound": "No Shipment Carts found"
+      },
+      "created": "A new Shipment Cart is created with identifier {{ param }}",
+      "updated": "A Shipment Cart is updated with identifier {{ param }}",
+      "deleted": "A Shipment Cart is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipment Cart {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipment Cart"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "phoneToTheReceiver": "Phone To The Receiver",
+      "firm": "Firm",
+      "taxNumber": "Tax Number",
+      "cart": "Cart"
+    }
+  }
+}

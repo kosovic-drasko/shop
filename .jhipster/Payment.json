@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330054755",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "payment",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "priceNet",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "10000",
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "vat",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "100",
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "priceGross",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "paymentStatusEnum",
+      "fieldType": "PaymentStatusEnum",
+      "fieldValues": "WaitingForBankTransfer,PreparationForShipping"
+    },
+    {
+      "fieldName": "createTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Payment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

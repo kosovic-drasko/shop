@@ -1,0 +1,222 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-order-main-heading" data-cy="OrderMainCreateUpdateHeading" jhiTranslate="shopApp.orderMain.home.createOrEditLabel">
+        Kreirajte ili izmenite Order Main
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.buyerLogin" for="field_buyerLogin">Buyer Login</label>
+          <input
+            type="text"
+            class="form-control"
+            name="buyerLogin"
+            id="field_buyerLogin"
+            data-cy="buyerLogin"
+            formControlName="buyerLogin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.buyerFirstName" for="field_buyerFirstName">Buyer First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="buyerFirstName"
+            id="field_buyerFirstName"
+            data-cy="buyerFirstName"
+            formControlName="buyerFirstName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.buyerLastName" for="field_buyerLastName">Buyer Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="buyerLastName"
+            id="field_buyerLastName"
+            data-cy="buyerLastName"
+            formControlName="buyerLastName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.buyerEmail" for="field_buyerEmail">Buyer Email</label>
+          <input
+            type="text"
+            class="form-control"
+            name="buyerEmail"
+            id="field_buyerEmail"
+            data-cy="buyerEmail"
+            formControlName="buyerEmail"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.buyerPhone" for="field_buyerPhone">Buyer Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            name="buyerPhone"
+            id="field_buyerPhone"
+            data-cy="buyerPhone"
+            formControlName="buyerPhone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.amountOfCartNet" for="field_amountOfCartNet">Amount Of Cart Net</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfCartNet"
+            id="field_amountOfCartNet"
+            data-cy="amountOfCartNet"
+            formControlName="amountOfCartNet"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.amountOfCartGross" for="field_amountOfCartGross"
+            >Amount Of Cart Gross</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfCartGross"
+            id="field_amountOfCartGross"
+            data-cy="amountOfCartGross"
+            formControlName="amountOfCartGross"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.amountOfShipmentNet" for="field_amountOfShipmentNet"
+            >Amount Of Shipment Net</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfShipmentNet"
+            id="field_amountOfShipmentNet"
+            data-cy="amountOfShipmentNet"
+            formControlName="amountOfShipmentNet"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.amountOfShipmentGross" for="field_amountOfShipmentGross"
+            >Amount Of Shipment Gross</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfShipmentGross"
+            id="field_amountOfShipmentGross"
+            data-cy="amountOfShipmentGross"
+            formControlName="amountOfShipmentGross"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.amountOfOrderNet" for="field_amountOfOrderNet"
+            >Amount Of Order Net</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfOrderNet"
+            id="field_amountOfOrderNet"
+            data-cy="amountOfOrderNet"
+            formControlName="amountOfOrderNet"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.amountOfOrderGross" for="field_amountOfOrderGross"
+            >Amount Of Order Gross</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountOfOrderGross"
+            id="field_amountOfOrderGross"
+            data-cy="amountOfOrderGross"
+            formControlName="amountOfOrderGross"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.orderMainStatus" for="field_orderMainStatus">Order Main Status</label>
+          <select
+            class="form-control"
+            name="orderMainStatus"
+            formControlName="orderMainStatus"
+            id="field_orderMainStatus"
+            data-cy="orderMainStatus"
+          >
+            <option [ngValue]="null">{{ 'shopApp.OrderMainStatusEnum.null' | translate }}</option>
+            <option *ngFor="let orderMainStatusEnum of orderMainStatusEnumValues" [value]="orderMainStatusEnum">
+              {{ 'shopApp.OrderMainStatusEnum.' + orderMainStatusEnum | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.createTime" for="field_createTime">Create Time</label>
+          <div class="d-flex">
+            <input
+              id="field_createTime"
+              data-cy="createTime"
+              type="datetime-local"
+              class="form-control"
+              name="createTime"
+              formControlName="createTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="shopApp.orderMain.updateTime" for="field_updateTime">Update Time</label>
+          <div class="d-flex">
+            <input
+              id="field_updateTime"
+              data-cy="updateTime"
+              type="datetime-local"
+              class="form-control"
+              name="updateTime"
+              formControlName="updateTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Otkaži</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sačuvaj</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

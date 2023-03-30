@@ -1,0 +1,130 @@
+<div>
+  <h2 id="page-heading" data-cy="PaymentHeading">
+    <span jhiTranslate="shopApp.payment.home.title">Payments</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shopApp.payment.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-payment"
+        [routerLink]="['/payment/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shopApp.payment.home.createLabel"> Kreiraj novi Payment </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="payments?.length === 0">
+    <span jhiTranslate="shopApp.payment.home.notFound">No Payments found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="payments && payments.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priceNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.priceNet">Price Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="vat">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.vat">Vat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priceGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.priceGross">Price Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paymentStatusEnum">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.paymentStatusEnum">Payment Status Enum</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createTime">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.createTime">Create Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="updateTime">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.payment.updateTime">Update Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of payments; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/payment', payment.id, 'view']">{{ payment.id }}</a>
+          </td>
+          <td>{{ payment.name }}</td>
+          <td>{{ payment.priceNet }}</td>
+          <td>{{ payment.vat }}</td>
+          <td>{{ payment.priceGross }}</td>
+          <td jhiTranslate="{{ 'shopApp.PaymentStatusEnum.' + payment.paymentStatusEnum }}">{{ payment.paymentStatusEnum }}</td>
+          <td>{{ payment.createTime | formatMediumDatetime }}</td>
+          <td>{{ payment.updateTime | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/payment', payment.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Pregled</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/payment', payment.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Izmeni</span>
+              </button>
+
+              <button type="submit" (click)="delete(payment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Obriši</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

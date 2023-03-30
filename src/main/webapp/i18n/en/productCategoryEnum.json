@@ -1,0 +1,9 @@
+{
+  "shopApp": {
+    "ProductCategoryEnum": {
+      "null": "",
+      "Vitamins": "Vitamins",
+      "Minerals": "Minerals"
+    }
+  }
+}

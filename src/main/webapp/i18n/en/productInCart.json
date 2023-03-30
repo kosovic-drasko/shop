@@ -1,0 +1,36 @@
+{
+  "shopApp": {
+    "productInCart": {
+      "home": {
+        "title": "Product In Carts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product In Cart",
+        "createOrEditLabel": "Create or edit a Product In Cart",
+        "notFound": "No Product In Carts found"
+      },
+      "created": "A new Product In Cart is created with identifier {{ param }}",
+      "updated": "A Product In Cart is updated with identifier {{ param }}",
+      "deleted": "A Product In Cart is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product In Cart {{ id }}?"
+      },
+      "detail": {
+        "title": "Product In Cart"
+      },
+      "id": "ID",
+      "category": "Category",
+      "name": "Name",
+      "quantity": "Quantity",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "totalPriceNet": "Total Price Net",
+      "totalPriceGross": "Total Price Gross",
+      "stock": "Stock",
+      "description": "Description",
+      "image": "Image",
+      "productId": "Product Id",
+      "cart": "Cart"
+    }
+  }
+}

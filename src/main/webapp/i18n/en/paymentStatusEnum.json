@@ -1,0 +1,9 @@
+{
+  "shopApp": {
+    "PaymentStatusEnum": {
+      "null": "",
+      "WaitingForBankTransfer": "WaitingForBankTransfer",
+      "PreparationForShipping": "PreparationForShipping"
+    }
+  }
+}

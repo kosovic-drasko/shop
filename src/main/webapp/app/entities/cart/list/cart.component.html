@@ -1,0 +1,113 @@
+<div>
+  <h2 id="page-heading" data-cy="CartHeading">
+    <span jhiTranslate="shopApp.cart.home.title">Carts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shopApp.cart.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cart"
+        [routerLink]="['/cart/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shopApp.cart.home.createLabel"> Kreiraj novi Cart </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="carts?.length === 0">
+    <span jhiTranslate="shopApp.cart.home.notFound">No Carts found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="carts && carts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfCartNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.cart.amountOfCartNet">Amount Of Cart Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfCartGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.cart.amountOfCartGross">Amount Of Cart Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfShipmentNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.cart.amountOfShipmentNet">Amount Of Shipment Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfShipmentGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.cart.amountOfShipmentGross">Amount Of Shipment Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfOrderNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.cart.amountOfOrderNet">Amount Of Order Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amountOfOrderGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.cart.amountOfOrderGross">Amount Of Order Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cart of carts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/cart', cart.id, 'view']">{{ cart.id }}</a>
+          </td>
+          <td>{{ cart.amountOfCartNet }}</td>
+          <td>{{ cart.amountOfCartGross }}</td>
+          <td>{{ cart.amountOfShipmentNet }}</td>
+          <td>{{ cart.amountOfShipmentGross }}</td>
+          <td>{{ cart.amountOfOrderNet }}</td>
+          <td>{{ cart.amountOfOrderGross }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/cart', cart.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Pregled</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/cart', cart.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Izmeni</span>
+              </button>
+
+              <button type="submit" (click)="delete(cart)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Obriši</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

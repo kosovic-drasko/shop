@@ -1,0 +1,36 @@
+{
+  "shopApp": {
+    "productInOrderMain": {
+      "home": {
+        "title": "Product In Order Mains",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Product In Order Main",
+        "createOrEditLabel": "Kreirajte ili izmenite Product In Order Main",
+        "notFound": "No Product In Order Mains found"
+      },
+      "created": "Kreiran je novi Product In Order Main pod nazivom {{ param }}",
+      "updated": "Product In Order Main pod nazivom {{ param }} je ažuriran",
+      "deleted": "Product In Order Main pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Product In Order Main pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Product In Order Main"
+      },
+      "id": "ID",
+      "category": "Category",
+      "name": "Name",
+      "quantity": "Quantity",
+      "priceNet": "Price Net",
+      "vat": "Vat",
+      "priceGross": "Price Gross",
+      "totalPriceNet": "Total Price Net",
+      "totalPriceGross": "Total Price Gross",
+      "stock": "Stock",
+      "description": "Description",
+      "image": "Image",
+      "productId": "Product Id",
+      "orderMain": "Order Main"
+    }
+  }
+}

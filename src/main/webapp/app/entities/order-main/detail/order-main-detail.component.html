@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="orderMain">
+      <h2 data-cy="orderMainDetailsHeading"><span jhiTranslate="shopApp.orderMain.detail.title">Order Main</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ orderMain.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.buyerLogin">Buyer Login</span></dt>
+        <dd>
+          <span>{{ orderMain.buyerLogin }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.buyerFirstName">Buyer First Name</span></dt>
+        <dd>
+          <span>{{ orderMain.buyerFirstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.buyerLastName">Buyer Last Name</span></dt>
+        <dd>
+          <span>{{ orderMain.buyerLastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.buyerEmail">Buyer Email</span></dt>
+        <dd>
+          <span>{{ orderMain.buyerEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.buyerPhone">Buyer Phone</span></dt>
+        <dd>
+          <span>{{ orderMain.buyerPhone }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.amountOfCartNet">Amount Of Cart Net</span></dt>
+        <dd>
+          <span>{{ orderMain.amountOfCartNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.amountOfCartGross">Amount Of Cart Gross</span></dt>
+        <dd>
+          <span>{{ orderMain.amountOfCartGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.amountOfShipmentNet">Amount Of Shipment Net</span></dt>
+        <dd>
+          <span>{{ orderMain.amountOfShipmentNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.amountOfShipmentGross">Amount Of Shipment Gross</span></dt>
+        <dd>
+          <span>{{ orderMain.amountOfShipmentGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.amountOfOrderNet">Amount Of Order Net</span></dt>
+        <dd>
+          <span>{{ orderMain.amountOfOrderNet }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.amountOfOrderGross">Amount Of Order Gross</span></dt>
+        <dd>
+          <span>{{ orderMain.amountOfOrderGross }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.orderMainStatus">Order Main Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'shopApp.OrderMainStatusEnum.' + orderMain.orderMainStatus }}">{{ orderMain.orderMainStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.createTime">Create Time</span></dt>
+        <dd>
+          <span>{{ orderMain.createTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="shopApp.orderMain.updateTime">Update Time</span></dt>
+        <dd>
+          <span>{{ orderMain.updateTime | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Nazad</span>
+      </button>
+
+      <button type="button" [routerLink]="['/order-main', orderMain.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Izmeni</span>
+      </button>
+    </div>
+  </div>
+</div>

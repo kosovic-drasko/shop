@@ -1,0 +1,11 @@
+id;name;price_net;vat;price_gross;payment_status_enum
+1;COM Berkshire;27517;65398;51946;WaitingForBankTransfer
+2;Quality;91746;704;11484;PreparationForShipping
+3;Supervisor IB;99284;39675;31674;PreparationForShipping
+4;SCSI Executive structure;59943;31963;95923;PreparationForShipping
+5;Clothing Manors EXE;56847;83803;53474;PreparationForShipping
+6;withdrawal Berkshire;60601;64877;81210;PreparationForShipping
+7;quantify Ngultrum New;65135;97104;44311;WaitingForBankTransfer
+8;Berkshire Customer Iowa;7578;38476;98905;WaitingForBankTransfer
+9;parsing application;26734;15193;40215;PreparationForShipping
+10;Avon Future;18028;18114;35452;WaitingForBankTransfer

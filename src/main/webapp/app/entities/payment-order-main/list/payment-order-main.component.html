@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="PaymentOrderMainHeading">
+    <span jhiTranslate="shopApp.paymentOrderMain.home.title">Payment Order Mains</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="shopApp.paymentOrderMain.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-payment-order-main"
+        [routerLink]="['/payment-order-main/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="shopApp.paymentOrderMain.home.createLabel"> Kreiraj novi Payment Order Main </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="paymentOrderMains?.length === 0">
+    <span jhiTranslate="shopApp.paymentOrderMain.home.notFound">No Payment Order Mains found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="paymentOrderMains && paymentOrderMains.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.paymentOrderMain.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priceNet">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.paymentOrderMain.priceNet">Price Net</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="vat">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.paymentOrderMain.vat">Vat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priceGross">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.paymentOrderMain.priceGross">Price Gross</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="orderMain.id">
+            <div class="d-flex">
+              <span jhiTranslate="shopApp.paymentOrderMain.orderMain">Order Main</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paymentOrderMain of paymentOrderMains; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/payment-order-main', paymentOrderMain.id, 'view']">{{ paymentOrderMain.id }}</a>
+          </td>
+          <td>{{ paymentOrderMain.name }}</td>
+          <td>{{ paymentOrderMain.priceNet }}</td>
+          <td>{{ paymentOrderMain.vat }}</td>
+          <td>{{ paymentOrderMain.priceGross }}</td>
+          <td>
+            <div *ngIf="paymentOrderMain.orderMain">
+              <a [routerLink]="['/order-main', paymentOrderMain.orderMain.id, 'view']">{{ paymentOrderMain.orderMain.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/payment-order-main', paymentOrderMain.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Pregled</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/payment-order-main', paymentOrderMain.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Izmeni</span>
+              </button>
+
+              <button type="submit" (click)="delete(paymentOrderMain)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Obriši</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
