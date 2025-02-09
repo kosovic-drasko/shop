@@ -18,7 +18,7 @@ const UserButton = async () => {
     return (
       <Button asChild>
         <Link href='/sign-in'>
-          <UserIcon /> Sign In
+          <UserIcon /> Prijavi se
         </Link>
       </Button>
     );
@@ -56,7 +56,7 @@ const UserButton = async () => {
                 className='w-full py-4 px-2 h-4 justify-start'
                 variant='ghost'
               >
-                Sign Out
+                Odjavi se
               </Button>
             </form>
           </DropdownMenuItem>
